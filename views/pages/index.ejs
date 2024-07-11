@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col s12">
+
+    <!-- Filter Card Begin -->
+    <div class="card form-card grey lighten-3">
+      <div class="card-content dark-text">
+        <div class="row">
+
+          <!-- App Name -->
+          <div class="valign center-block">
+            <h1 class="center-align orange-text">Food Truck Finder</h1>
+            <h6 class="center-align grey-text">Let us find your next Food Truck in San Francisco!</h6>
+          </div>
+          <br />
+
+          <!-- Form Begin -->
+          <form class="col s12" method="get">
+            <div class="row">
+
+              <div class="input-field col s12">
+                <input id="food_name" name="food_name" type="text" value="<%= food_name %>">
+                <label for="food_name">What do you want to eat?</label>
+              </div>
+
+            </div>
+            <div class="right-align">
+              <button class="btn waves-effect waves-light right-align orange" type="submit">Find</button>
+            </div>
+          </form>
+          <!-- Form End -->
+
+        </div>
+      </div>
+    </div>
+    <!-- Filter Card End -->
+
+  </div>
+
+  <!-- Food Truck Cards  -->
+  <% for (let i=0; i < foodtrucks.length; i++) { %>
+    <% let foodtruck = foodtrucks[i]; %>
+    <% let menu = foodtruck.fooditems.split(':'); %>
+
+    <%- include('../components/foodtruck_cards.ejs', {foodtruck: foodtruck, menu: menu}) %>
+  <% } %> 
+
+</div>
